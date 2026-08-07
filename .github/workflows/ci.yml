@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - name: Cache Rust dependencies
+        uses: actions/cache@v3
+
+      - name: Install rustlings
+        run: cargo install rustlings --locked
+
+      - name: Check exercises
+        shell: bash
+        run: |
+          if find exercises -name '*.rs' -print -quit | grep -q .; then
+            rustlings dev check
+            cargo fmt --check
+          else
+            echo "No exercises to check yet."
+          fi

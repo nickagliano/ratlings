@@ -1,0 +1,20 @@
+# Don't edit the `bin` list manually. Run `rustlings dev update` after changing
+# exercises or solutions.
+bin = []
+
+[package]
+name = "ratlings"
+version = "0.1.0"
+description = "Small and interactive exercises for learning Ratatui"
+edition = "2024"
+rust-version = "1.88"
+publish = false
+
+[dependencies]
+ratatui = "0.30.2"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
