@@ -11,8 +11,6 @@ final_message = """
 You finished Ratlings! 🎉
 """
 
-exercises = []
-
 # Add exercise metadata here. See CONTRIBUTING.md and the Rustlings community
 # exercises guide: https://rustlings.rust-lang.org/community-exercises/
 #
@@ -20,3 +18,46 @@ exercises = []
 # name = "example"
 # dir = "section"
 # hint = "A helpful hint."
+
+[[exercises]]
+name = "lesson0"
+dir = "00_intro"
+hint = """
+Look for `const NAME` near the top of the file. It is set to "???" — change
+that to your own name, keep the quotes, and save.
+
+Then press `?` in the viewer. Ratlings runs `cargo test` for this lesson and
+shows you the result.
+"""
+
+[[exercises]]
+name = "lesson1"
+dir = "01_packing"
+hint = """
+`Block::new()` gives you a block with no borders and no title, which draws
+nothing — that is why the screen is empty.
+
+`Block` has a constructor that starts you off with borders on all four sides,
+and a builder method for putting a title in the top border. You need both, and
+the title should read exactly " pack ", spaces included.
+
+https://docs.rs/ratatui/latest/ratatui/widgets/struct.Block.html
+"""
+
+[[exercises]]
+name = "lesson2"
+dir = "01_packing"
+hint = """
+Four compartments, four constraints, in the same order as `GEAR`.
+
+Three of these items take up the same room no matter how big the pack is, so a
+fixed length is exactly right for them. The fourth should end up with whatever
+the other three leave behind — and it has to still be right after the pack is
+resized.
+
+Read through the variants of `Constraint` and look for one that means "take
+what is left" rather than "take exactly this much". More than one of them will
+work here.
+
+https://docs.rs/ratatui/latest/ratatui/layout/enum.Constraint.html
+"""
